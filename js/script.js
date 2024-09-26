@@ -3,19 +3,26 @@ const encodedData = params.get("data");
 const data = JSON.parse(decodeURIComponent(encodedData));
 
 // Completing name
-document.getElementById('title').innerText = `Deadlines for ${params.get("user")}`
+const fname = params.get("user").split("_")[0]
+const lname = params.get("user").split("_")[1]
+document.getElementById('title').innerText = `Deadlines for ${fname} ${lname}`
 
 // Completing deadlines
 const deadlinesContainer = document.getElementById("deadlines");
 for (const [courseName, deadlines] of Object.entries(data)) {
+    const courseContainer = document.createElement('div')
+    courseContainer.classList.add('course')
     const courseHeader = document.createElement('h1');
+    courseHeader.classList.add('course-title')
     courseHeader.textContent = courseName;
-    deadlinesContainer.appendChild(courseHeader);
+    deadlinesContainer.appendChild(courseContainer)
+    courseContainer.appendChild(courseHeader);
 
 
     const sortedDeadlines = Object.entries(deadlines).sort((a, b) => a[1] - b[1]);
     for (const [assignmentName, timestamp] of sortedDeadlines) {
         const deadlineParagraph = document.createElement('p');
+        deadlineParagraph.classList.add("course-paragraph")
 
         const deadlineDate = timestamp * 1000;
         const formattedDate = formatTimestamp(deadlineDate);
@@ -24,8 +31,8 @@ for (const [courseName, deadlines] of Object.entries(data)) {
 
 
         // Устанавливаем текст для параграфа
-        deadlineParagraph.innerHTML = `${assignmentName}: <span class="">${formattedDate}</span> </br> ${formattedTimeDifference} before the deadline`;
+        deadlineParagraph.innerHTML = `<span class="assignment-name">${assignmentName}:</span>  ${formattedDate}</br> <span class="assignment-timeleft">${formattedTimeDifference} before the deadline</span>`;
 
-        deadlinesContainer.appendChild(deadlineParagraph);
+        courseContainer.appendChild(deadlineParagraph);
     }
 }
