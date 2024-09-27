@@ -47,3 +47,21 @@ html {
     color: #DE6B66;
     font-weight: 600;
 }
+
+.course-link {
+    display: block;
+    padding: 20px;
+    color: #fefefe;
+    background: #232832;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px #000;
+    border: 1px solid #DE6B66;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .3s;
+}
+.course-link:hover {
+    box-shadow: 0 0 5px #DE6B66;
+    background: #181818;
+}
