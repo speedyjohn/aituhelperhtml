@@ -31,8 +31,6 @@ for (const [courseName, deadlines] of Object.entries(data)) {
             const timeDifference = deadlineDate - Date.now();
             const formattedTimeDifference = formatTimeDifference(timeDifference);
 
-
-            // Устанавливаем текст для параграфа
             deadlineParagraph.innerHTML = `<span class="assignment-name">${assignmentName}:</span>  ${formattedDate}</br> <span class="assignment-timeleft">${formattedTimeDifference} before the deadline</span>`;
 
             courseContainer.appendChild(deadlineParagraph);

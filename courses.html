@@ -10,11 +10,21 @@
 </head>
 <body>
     <div class="container">
-        <a href="#" class="course-link">Course name</a>
-        <a href="#" class="course-link">Course name</a>
-        <a href="#" class="course-link">Course name</a>
-        <a href="#" class="course-link">Course name</a>
+        <h1 class="title" id="title">Grades for </h1>
+        <div id="courses"></div>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        const stringWithTags = "Задание: <a title=\"Link to Assignment activity Assignment_2\" class=\"gradeitemheader\" href=\"https://moodle.astanait.edu.kz/mod/assign/view.php?id=140273\"><img class=\"icon itemicon\" src=\"https://moodle.astanait.edu.kz/theme/image.php/boost/assign/1677736259/icon\" alt=\"Assignment\" />Assignment_2</a> - Оценка: 100.00\n" +
+            "  Задание: <a title=\"Link to Assignment activity Assignment_3\" class=\"gradeitemheader\" href=\"https://moodle.astanait.edu.kz/mod/assign/view.php?id=143734\"><img class=\"icon itemicon\" src=\"https://moodle.astanait.edu.kz/theme/image.php/boost/assign/1677736259/icon\" alt=\"Assignment\" />Assignment_3</a> - Оценка: 95.00\n" +
+            "  Задание: <span class=\"gradeitemheader\" title=\"Course total\" tabindex=\"0\"><i class=\"icon fa fa-calculator fa-fw icon itemicon\"  title=\"Calculated grade\" role=\"img\" aria-label=\"Calculated grade\"></i>Course total</span><div class=\"gradeitemdescription\">Include empty grades.</div><div class=\"gradeitemdescriptionfiller\"></div> - Оценка: 0.00\n";
+        const tempElement = document.createElement("div");
+        tempElement.innerHTML = stringWithTags;
+        const stringWithoutTags = tempElement.textContent || tempElement.innerText || "";
+        console.log(stringWithoutTags);
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
+    <script src="js/courses.js"></script>
 </body>
 </html>

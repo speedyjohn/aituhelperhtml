@@ -14,7 +14,13 @@
         <div id="deadlines"></div>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        window.onload = function() {
+            Telegram.WebApp.expand();
+        };
+    </script>
     <script src="js/formatTime.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
+    <script src="js/courses.js"></script>
 </body>
 </html>
