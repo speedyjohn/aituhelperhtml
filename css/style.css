@@ -49,7 +49,7 @@ html {
 
 .grades {
     display: block;
-    padding: 30px;
+    padding: 20px 10px;
     color: #fefefe;
     background: #181818;
     border-radius: 20px;
@@ -61,7 +61,14 @@ html {
     position: relative;
 }
 
+.grades-title {
+    margin-bottom: 0;
+}
+
 .grades i {
+    position: absolute;
+    right: 20px;
+    top: 20px;
     transition: .3s;
 }
 
@@ -76,6 +83,10 @@ html {
     animation: fadeIn 0.5s forwards;
 }
 
+.active .grades-title {
+    margin-bottom: 10px;
+}
+
 .active i {
     transform: rotate(180deg);
 }
@@ -84,12 +95,6 @@ html {
     to {
         opacity: 1;
     }
-}
-
-.grades i {
-    position: absolute;
-    top: 30px;
-    right: 30px;
 }
 
 .grades-table {
