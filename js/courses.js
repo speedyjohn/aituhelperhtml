@@ -16,6 +16,7 @@ for (const [courseName, grades] of Object.entries(jsonData)) {
     if(Object.keys(grades).length > 0) {
         const courseContainer = document.createElement('div')
         courseContainer.classList.add('grades')
+        courseContainer.innerHTML = "<i class=\"fa-solid fa-chevron-down\"></i>"
         const courseHeader = document.createElement('h1');
         courseHeader.classList.add('grades-title')
         courseHeader.textContent = courseName;
@@ -67,3 +68,19 @@ for (const [courseName, grades] of Object.entries(jsonData)) {
         }
     }
 }
+
+const grades = document.querySelectorAll('.grades')
+
+grades.forEach(grade => {
+    grade.addEventListener('click', () => {
+        grade.classList.toggle('active');
+
+        if (this.classList.contains('active')) {
+            const gradesTable = this.querySelector('.grades-table');
+            const fullHeight = gradesTable.scrollHeight;
+            this.style.maxHeight = fullHeight + 'px';
+        } else {
+            this.style.maxHeight = 0; // Возвращаем в исходное состояние
+        }
+    });
+});
