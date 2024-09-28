@@ -48,24 +48,24 @@ html {
     font-weight: 600;
 }
 
-.grades {
-    display: block;
-    padding: 30px;
-    color: #fefefe;
-    background: #232832;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 25px #000;
-    border: 1px solid #DE6B66;
-    font-weight: 800;
-    text-decoration: none;
-    transition: .3s;
-    cursor: pointer;
-}
-.grades:hover {
-    box-shadow: 0 0 5px #DE6B66;
-    background: #181818;
-}
+/*.grades {*/
+/*    display: block;*/
+/*    padding: 30px;*/
+/*    color: #fefefe;*/
+/*    background: #232832;*/
+/*    border-radius: 20px;*/
+/*    margin-bottom: 20px;*/
+/*    box-shadow: 0 0 25px #000;*/
+/*    border: 1px solid #DE6B66;*/
+/*    font-weight: 800;*/
+/*    text-decoration: none;*/
+/*    transition: .3s;*/
+/*    cursor: pointer;*/
+/*}*/
+/*.grades:hover {*/
+/*    box-shadow: 0 0 5px #DE6B66;*/
+/*    background: #181818;*/
+/*}*/
 
 .grades-table {
     width: 100%;
@@ -103,7 +103,7 @@ html {
     border-bottom: 1px solid rgba(254, 254, 254, 0.3);
     transition: .3s;
 }
-.grades-table tr:hover {
+.grades-table tbody tr:hover {
     background: #141414;
 }
 

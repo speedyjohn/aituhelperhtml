@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const base64CompressedData = decodeURIComponent(params.get("data"));
+console.log(params.get("data"))
 const compressedData = Uint8Array.from(atob(base64CompressedData), c => c.charCodeAt(0));
 const decompressedData = pako.inflate(compressedData, { to: 'string' });
 const jsonData = JSON.parse(decompressedData);
