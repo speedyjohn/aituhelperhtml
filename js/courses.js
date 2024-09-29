@@ -1,14 +1,9 @@
 const params = new URLSearchParams(window.location.search);
 const base64CompressedData = decodeURIComponent(params.get("data"));
-console.log(params.get("data"))
 const compressedData = Uint8Array.from(atob(base64CompressedData), c => c.charCodeAt(0));
 const decompressedData = pako.inflate(compressedData, { to: 'string' });
 const jsonData = JSON.parse(decompressedData);
 
-// Completing name
-const fname = params.get("user").split("_")[0]
-const lname = params.get("user").split("_")[1]
-document.getElementById('title').innerText = `Deadlines for ${fname} ${lname}`
 
 // Completing deadlines
 const gradesContainer = document.getElementById("courses");
@@ -40,28 +35,19 @@ for (const [courseName, grades] of Object.entries(jsonData)) {
         courseContainer.appendChild(table);
 
 
-        for (const [assignmentName, gradeWithTags] of Object.entries(grades)) {
+        for (const [assignmentName, assignmentGrades] of Object.entries(grades)) {
             const tbodyRow = document.createElement("tr")
             const tbodyAssignment = document.createElement("td")
             const tbodyGrade = document.createElement("td")
             tbodyRow.appendChild(tbodyAssignment)
             tbodyRow.appendChild(tbodyGrade)
 
-            const tempAssignment = document.createElement("div");
-            tempAssignment.innerHTML = assignmentName;
-            const assignmentWithoutTags = (tempAssignment.textContent || tempAssignment.innerText || "");
-
-
-            const tempGrade = document.createElement("div");
-            tempGrade.innerHTML = gradeWithTags;
-            const gradeWithoutTags = tempGrade.textContent || tempGrade.innerText || "";
-
-            tbodyAssignment.innerText = assignmentWithoutTags
-            tbodyGrade.innerText = gradeWithoutTags
+            tbodyAssignment.innerText = assignmentName
+            tbodyGrade.innerText = assignmentGrades
 
             tbody.appendChild(tbodyRow);
 
-            if(assignmentWithoutTags.includes("Attendance")) {
+            if(assignmentName.includes("Attendance")) {
                 const additionalTrow = document.createElement('tr')
                 tbody.appendChild(additionalTrow)
             }
@@ -69,18 +55,15 @@ for (const [courseName, grades] of Object.entries(jsonData)) {
     }
 }
 
+
 const grades = document.querySelectorAll('.grades')
 
 grades.forEach(grade => {
     grade.addEventListener('click', () => {
         grade.classList.toggle('active');
-
-        if (this.classList.contains('active')) {
-            const gradesTable = this.querySelector('.grades-table');
-            const fullHeight = gradesTable.scrollHeight;
-            this.style.maxHeight = fullHeight + 'px';
-        } else {
-            this.style.maxHeight = 0; // Возвращаем в исходное состояние
-        }
     });
+});
+
+document.querySelector('.grades table').addEventListener('click', function(event) {
+    event.stopPropagation();
 });
