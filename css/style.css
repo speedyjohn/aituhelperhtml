@@ -175,15 +175,22 @@ html {
 
 .schedule {
   width: 100%;
-  word-wrap: break-word;
+  display: block;
 }
 .schedule td {
   font-size: 10px;
+  width: 23% !important;
+  display: inline-block;
 }
 .schedule td:first-child {
   color: #DE6B66;
   font-weight: 600;
-  width: 10% !important;
+  width: 15% !important;
+}
+.schedule td:last-child {
+  color: #DE6B66;
+  font-weight: 600;
+  width: 15% !important;
 }
 
 /*# sourceMappingURL=style.css.map */
