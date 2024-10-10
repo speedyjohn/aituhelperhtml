@@ -1,159 +1,186 @@
 html {
-    background: #141414;
-    color: #fefefe;
-    font-family: "Montserrat";
+  background: #141414;
+  color: #fefefe;
+  font-family: "Montserrat";
 }
 
 *, *:before, *:after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .title {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .container {
-    width: 100%;
-    padding: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 .course {
-    display: block;
-    padding: 20px 10px;
-    color: #fefefe;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    font-weight: 800;
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    border: 1px solid rgba(254, 254, 254, 0.1);
+  display: block;
+  padding: 20px 10px;
+  color: #fefefe;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid rgba(254, 254, 254, 0.1);
 }
 
 .course-title, .grades-title {
-    font-weight: 700;
-    font-size: 18px;
-    margin-bottom: 0;
-    width: 70%;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 0;
+  width: 70%;
+}
+.course-title span, .grades-title span {
+  font-size: 13px;
+  color: rgba(254, 254, 254, 0.6);
+  font-weight: 400;
 }
 
 .counter {
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 0 10px;
-    border: 1px solid rgba(254, 254, 254, 0.1);
-    border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 10px;
+  border: 1px solid rgba(254, 254, 254, 0.1);
+  border-radius: 10px;
 }
 
 .course-paragraph {
-    display: none;
-    font-size: 14px;
-    margin-bottom: 15px;
-    line-height: 25px;
-    font-weight: 400;
+  display: none;
+  font-size: 14px;
+  margin-bottom: 15px;
+  line-height: 25px;
+  font-weight: 400;
 }
-
 .course-paragraph:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .assignment-name, .assignment-timeleft {
-    color: #DE6B66;
+  color: #DE6B66;
 }
 
 .assignment-timeleft {
-    border-bottom: 1px solid rgba(254, 254, 254, 0.1);
+  border-bottom: 1px solid rgba(254, 254, 254, 0.1);
 }
 
 .grades {
-    display: block;
-    padding: 20px 10px;
-    color: #fefefe;
-    border-radius: 20px;
-    margin-bottom: 10px;
-    font-weight: 800;
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    border: 1px solid rgba(254, 254, 254, 0.1);
+  display: block;
+  padding: 20px 10px;
+  color: #fefefe;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid rgba(254, 254, 254, 0.1);
+}
+.grades .grades-table {
+  overflow: hidden;
+  display: none;
 }
 
 .grades i, .course i {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    transition: .3s;
-}
-
-.grades .grades-table {
-    overflow: hidden;
-    display: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  transition: 0.3s;
 }
 
 .active .grades-table {
-    opacity: 0;
-    display: table;
-    animation: fadeIn 0.5s forwards;
+  opacity: 0;
+  display: table;
+  animation: fadeIn 0.5s forwards;
 }
-
 .active .course-paragraph {
-    display: block;
+  display: block;
 }
-
 .active .grades-title, .active .course-title {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-
 .active i {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 @keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
-
 .grades-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
-
-.grades-table thead {
-}
-
 .grades-table thead td {
-    font-weight: 700;
-    width: 50%;
-}
-
-.grades-table tr {
-    height: 30px;
-    transition: .3s;
-    border-bottom: 1px solid rgba(254, 254, 254, 0.1);
+  font-weight: 700;
+  width: 50%;
 }
 .grades-table tbody tr:hover {
-    background: #101010;
+  background: #101010;
 }
-
-.grades-table tr:last-child {
-    border-bottom: none;
-}
-
 .grades-table td {
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 400;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.grades-table tr {
+  height: 30px;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(254, 254, 254, 0.1);
+}
+.grades-table tr:last-child {
+  border-bottom: none;
+}
+.grades-table tr td:last-child {
+  color: #DE6B66;
+  font-weight: 600;
 }
 
-.grades-table tbody tr td:first-child {
-    color: #DE6B66;
-    font-weight: 600;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #141414;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  align-items: center;
 }
+.header-title h1 {
+  font-size: 30px;
+  line-height: 60px;
+}
+.header-right img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.schedule {
+  width: 100%;
+}
+.schedule td {
+  font-size: 11px;
+  width: 20%;
+}
+.schedule td:first-child {
+  color: #DE6B66;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=style.css.map */

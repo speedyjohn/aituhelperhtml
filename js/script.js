@@ -3,19 +3,18 @@ const base64CompressedData = decodeURIComponent(params.get("data"));
 const compressedData = Uint8Array.from(atob(base64CompressedData), c => c.charCodeAt(0));
 const decompressedData = pako.inflate(compressedData, { to: 'string' });
 const jsonData = JSON.parse(decompressedData);
-
+console.log(jsonData)
 
 // Completing deadlines
 const deadlinesContainer = document.getElementById("deadlines");
 for (const [courseName, deadlines] of Object.entries(jsonData)) {
-    console.log(deadlines)
     if(Object.keys(deadlines).length > 0) {
         const courseContainer = document.createElement('div')
         courseContainer.classList.add('course')
         courseContainer.innerHTML = "<i class=\"fa-solid fa-chevron-down\"></i>"
         const courseHeader = document.createElement('h1');
         courseHeader.classList.add('course-title')
-        courseHeader.textContent = courseName;
+        courseHeader.innerHTML = courseName.split('|')[0] + `<br><span>${courseName.split('|')[1]}</span>`;
         deadlinesContainer.appendChild(courseContainer)
         courseContainer.appendChild(courseHeader);
         const counter = document.createElement('div')
